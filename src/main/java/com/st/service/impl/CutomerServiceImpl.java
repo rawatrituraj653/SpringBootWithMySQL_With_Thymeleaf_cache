@@ -25,17 +25,15 @@ public class CutomerServiceImpl implements ICustomerService {
 		
 		return repo.save(customer).getCustId();
 	}
-
-	@Transactional(readOnly = true)
-	@Cacheable(value ="customer-cache",key="#id" )
-	public Customer getCustomer(Integer id) {
-		
-		Optional<Customer> opt=repo.findById(id);
-		if(opt.isPresent()) {
-			return opt.get();
-		}
-		return null;
-	}
+	/*
+	 * @Transactional(readOnly = true)
+	 * 
+	 * @Cacheable(value ="customer-cache",key="#id" ) public Customer
+	 * getCustomer(Integer id) {
+	 * 
+	 * Optional<Customer> opt=repo.findById(id); if(opt.isPresent()) { return
+	 * opt.get(); } return null; }
+	 */
 
 	@Override
 	@Transactional(readOnly = true)
@@ -51,6 +49,7 @@ public class CutomerServiceImpl implements ICustomerService {
 	}
 	
 	@Transactional(readOnly = true)
+	@Cacheable(value="customer-cache",key="#id", unless = "#result==null")
 	public Customer getCustomerOnly(Integer id) {	
 		Optional<Customer> opt=repo.findById(id);
 		if(opt.isPresent()) {
