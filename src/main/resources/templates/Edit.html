@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>EDiT Page</title>
+</head>
+<body>
+  <div class="container">
+	<h3 class="h4 text-center">Welcome To Customer Register Page</h3>
+	<form action="#" th:action="@{/customer/update}" method="Post" th:object="${customer}" class="form-group">
+		<label class="text-info">Customer Unique ID</label>
+		<input type="text" th:field="*{custId}" class="form-control" readonly="readonly"/>
+		<label class="text-info">Enter Customer Code</label>
+		<input type="text" th:field="*{custCode}" class="form-control" placeholder="Enter customer Code" />
+		<label class="text-info">Enter Customer Name</label>
+		<input type="text" th:field="*{custName}" class="form-control"placeholder="Enter customer Name"/>
+		<label class="text-info">Enter Customer Income</label>
+		<input type="number" th:field="*{custIncome}" class="form-control"placeholder="Enter customer Income"/>
+		<label class="text-info">Enter Customer Address</label>
+		<textarea th:field="*{note}" class="form-control" placeholder="Enter Customer Address"></textarea>
+		<input type="submit" class="btn btn-primary" value="Update Customer"/>
+		<input type="reset" class="btn btn-warning" value="Clear Form"/>
+	</form>
+  </div>
+  <a th:href="@{/customer/showAll}" class="btn btn-light" >Get ALL Customer Data</a><br>
+  <span style="color: dodgerBlue;" th:text="${msg}"></span>
+</body>
+</html>

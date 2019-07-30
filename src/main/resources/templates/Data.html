@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+<title>Customer List</title>
+</head>
+<body>
+	<div class="container">
+	<h3 class="text-center h3 text-secondary" >Customer Data In Table Format</h3>
+	<a th:href="@{/customer/reg}" class="btn btn-primary btn-sm mb-3" >Add Customer</a>	
+	<table class=" table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>CustomerID</th>
+				<th>CustomerCode</th>
+				<th>CustomerName</th>
+				<th>Income</th>
+				<th> Address</th>
+				<th colspan="3">Operations</th>
+			</tr>
+		</thead>	
+		<tr th:each="op: ${custs}">
+			<td th:text="${op.custId}" />
+			<td th:text="${op.custCode}" />
+			<td th:text="${op.custName}" />
+			<td th:text="${op.custIncome}" />
+			<td th:text="${op.note}" />
+			<td><a th:href="@{/customer/view/{id}(id=${op.custId})}" class="btn btn-info">ViEW</a></td>
+			<td><a th:href="@{/customer/delete/{id}(id=${op.custId})}" class="btn btn-danger">DELETE</a></td>
+			<td><a th:href="@{/customer/edit/{id}(id=${op.custId})}" class="btn btn-warning">EDiT</a></td>
+		</tr>
+	</table>
+	</div>	
+<span style="color: dodgerBlue;" th:text="${msg}"></span>	
+</body>
+</html>

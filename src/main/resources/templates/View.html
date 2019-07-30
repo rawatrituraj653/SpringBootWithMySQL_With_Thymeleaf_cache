@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Data</title>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<meta charset="ISO-8859-1">
+</head>
+<body>
+<div class="container">
+	<h3 class="text-center h3 text-primary">Customer Data View Page</h3>
+<table class="table table-bordered table-striped">
+	<tr>
+	<th class="thead-dark">Customer ID</th>
+	<td th:text="${cust.custId}">
+	</tr>
+	<tr>
+	<th class="thead-dark">Customer Code</th>
+	<td th:text="${cust.custCode}">
+	</tr>
+	<tr>
+	<th class="thead-dark">Customer Name</th>
+	<td th:text="${cust.custName}">
+	</tr>
+	<tr>
+	<th class="thead-dark">Customer Income</th>
+	<td th:text="${cust.custIncome}">
+	</tr>
+	<tr>
+	<th class="thead-dark">Customer Adress</th>
+	<td th:text="${cust.note}">
+	</tr>
+</table>
+</div>
+</body>
+</html>
